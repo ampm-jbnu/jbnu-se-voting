@@ -79,11 +79,11 @@ Distributed under the MIT license. See `LICENSE` for more information.
 
 ## ScreenShot :carmera:
 
-![](./screenshot/1.png)
-![](./screenshot/2.png)
-![](./screenshot/3.png)
-![](./screenshot/4.png)
-![](./screenshot/5.png)
+![](screenshot/1.png)
+![](screenshot/2.png)
+![](screenshot/3.png)
+![](screenshot/4.png)
+![](screenshot/5.png)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
