@@ -47,8 +47,28 @@ tail -f ~/.forever/sevoting.log
 
 ```sh
 yarn
+yarn global add nodemon
 yarn dev
 ```
+
+## DB Metadata
+
+```json
+// user
+{
+  "id": string,
+  "stdNum": string,
+  "name": string,
+  "check_voting": boolean
+}
+
+// vote
+{
+  "result": string  // agree, disagree, none
+}
+
+```
+
 
 ## Release History
 
@@ -85,12 +105,8 @@ Distributed under the MIT license. See `LICENSE` for more information.
   <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/3.jpg" />
   <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/4.jpg" />
   <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/5.jpg" />
-<!-- ![](https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/1.jpg)
-![](https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/2.jpg)
-![](https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/3.jpg)
-![](https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/4.jpg)
-![](https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/5.jpg) -->
 </div>
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
