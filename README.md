@@ -77,13 +77,13 @@ Distributed under the MIT license. See `LICENSE` for more information.
 - Moon Seokarm [mon823](https://github.com/mon823)
 - Lee Jung-un(선거관리위원장)
 
-## ScreenShot :carmera:
+## ScreenShot :camera:
 
-![](screenshot/1.png)
-![](screenshot/2.png)
-![](screenshot/3.png)
-![](screenshot/4.png)
-![](screenshot/5.png)
+![](https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/1.jpg)
+![](https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/2.jpg)
+![](https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/3.jpg)
+![](https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/4.jpg)
+![](https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/5.jpg)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
