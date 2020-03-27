@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>2020학년도 전북대학교 소프트웨어공학과 학생회장 투표</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <div class="container">
+        <div class="card shadow-sm">
+            <div class="card-header">
+                <h3 class="text-center">2020학년도 전북대학교 소프트웨어공학과 학생회장 선거 개표 결과</h3>
+            </div>
+            <div class="card-body text-center">
+                <div class="px-5 mb-4">
+                    <h5><strong>개표자:</strong> 이정언(비상대책위원장)</h5>
+                </div>
+                <div class="px-3 mb-4" id="chartArea">
+                    <canvas id="result_chart"></canvas>
+                </div>
+                <div class="px-5 mb-4">
+                    <div class="row justify-content-md-center mb-3">
+                        <h5 class="mr-3"><strong>유권자 수: </strong><%= data.users %>명</h5>
+                        <h5><strong>투표자 수: </strong><%= data.voters %>명</h5>
+                    </div>
+                    <div class="row justify-content-md-center mb-4">
+                        <h5 class="mr-3"><strong>찬성: </strong><%= data.agree %>명</h5>
+                        <h5 class="mr-3"><strong>반대: </strong><%= data.disagree %>명</h5>
+                        <h5><strong>무효: </strong><%= data.none %>명</h5>
+                    </div>
+                </div>
+                <div class="px-5 mb-4 row justify-content-md-center">
+                    <p><strong>결과: </strong><%= data.result %></p>
+                </div>
+                <input type="hidden" id="result_data" value= <%=JSON.stringify(data)%> />
+            </div>
+        </div>
+    </div><!-- /container -->
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+  <!-- <script src="/js/chart.js"></script> -->
+  <script>
+      var resultChart = $('#result_chart');
+
+      // chart colors
+      var colors = ['yellowgreen', 'red', 'grey', '#6c757d', '#c3e6cb', '#dc3545'];
+
+      var chartOptions = {
+          cutoutPercentage: 30, //도넛두께 : 값이 클수록 얇아짐
+          legend: {
+              position: "bottom",
+              padding: 5,
+              labels: {
+                  pointStyle: "circle",
+                  usePointStyle: true
+              }
+          },
+      };
+
+      var votingResult = JSON.parse('<%-JSON.stringify(data)%>');
+
+      var chartData = {
+          labels: ['찬성', '반대', '무효'],
+          datasets: [{
+              backgroundColor: colors.slice(0, 3),
+              borderWidth: 0,
+              data: [votingResult.agree, votingResult.disagree, votingResult.none]
+          }]
+      };
+
+      if (resultChart) {
+          new Chart(resultChart, {
+              type: 'pie',
+              data: chartData,
+              options: chartOptions
+          });
+      }
+  </script>
+</body>
+
+</html>

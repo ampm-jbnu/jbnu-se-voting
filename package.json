@@ -1,0 +1,41 @@
+{
+  "name": "se-voting",
+  "version": "1.0.0",
+  "private": true,
+  "description": "전북대학교 소프트웨어공학과 투표 웹 서비스",
+  "scripts": {
+    "dev": "nodemon --exec babel-node ./bin/www",
+    "start": "forever start -w -l sevoting.log --minUptime 5000 --spinSleepTime 2000 -c babel-node ./bin/www"
+  },
+  "dependencies": {
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^8.2.0",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.0",
+    "http-errors": "~1.6.3",
+    "mongoose": "^5.9.4",
+    "morgan": "~1.9.1",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ampm-jbnu/JBNU-SE-Voting.git"
+  },
+  "author": "bonomoon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ampm-jbnu/JBNU-SE-Voting/issues"
+  },
+  "homepage": "https://github.com/ampm-jbnu/JBNU-SE-Voting#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/polyfill": "^7.8.7"
+  }
+}

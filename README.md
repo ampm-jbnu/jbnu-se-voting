@@ -56,15 +56,15 @@ yarn dev
 ```json
 // user
 {
-  "id": string,
-  "stdNum": string,
-  "name": string,
-  "check_voting": boolean
+  "id": "string",
+  "stdNum": "string",       // 학번
+  "name": "string",         // 이름
+  "check_voting": "boolean" // 투표 했는지 안 했는지 체크용
 }
 
 // vote
 {
-  "result": string  // agree, disagree, none
+  "result": "string(agree, disagree, none)" // 찬성, 반대, 무효 표시
 }
 
 ```
