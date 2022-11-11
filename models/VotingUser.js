@@ -7,6 +7,5 @@ const UserSchema = new mongoose.Schema({
 });
 
 const model = mongoose.model('VotingUser', UserSchema, "voting_users");
-const user = model.findOne({stdNum: '201811208'})
 
 export default model;
