@@ -4,7 +4,7 @@ import msgs from "../constants/messages";
 
 async function getVotingResult(req, res, next) {
   const data = {
-    users: 139,
+    users: 166,
     voters: 0,
     agree: 0,
     disagree: 0,
