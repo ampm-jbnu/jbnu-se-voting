@@ -4,6 +4,21 @@ import { home, voting } from '../constants/routes';
 import VotingUser from '../models/VotingUser';
 import {getApiData, API_KEY} from '../.env_auth_api';
 
+const schedule = require('node-schedule');
+const rule = new schedule.RecurrenceRule();
+
+rule.year = 2022
+rule.month = 10
+rule.date = 13
+rule.hour = 16
+rule.minute =48
+
+// schedule.scheduleJob(rule, function(){
+//   console.log("투표 종료");
+//   btn = document.getElementsByName('showVotingResult');
+//   btn.disabled = false;
+// })
+
 function getIndex(req, res, next) {
   let sess = req.session;
 
@@ -14,6 +29,8 @@ function getIndex(req, res, next) {
       res.render("index");
     });
   }
+
+  document.getElementById
 }
 
 async function postLogin(req, res, next) {

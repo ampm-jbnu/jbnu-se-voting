@@ -20,6 +20,7 @@
     "http-errors": "~1.6.3",
     "mongoose": "^5.9.4",
     "morgan": "~1.9.1",
+    "node-schedule": "^2.1.0",
     "request": "^2.88.2",
     "request-promise-native": "^1.0.8"
   },
