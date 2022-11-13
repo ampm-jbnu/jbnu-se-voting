@@ -3,6 +3,7 @@ import { errors } from "../constants/messages";
 import { home, voting } from '../constants/routes';
 import VotingUser from '../models/VotingUser';
 import {getApiData, API_KEY} from '../.env_auth_api';
+import rule from '../models/appTimer'
 
 const schedule = require('node-schedule');
 const rule = new schedule.RecurrenceRule();
@@ -10,27 +11,25 @@ const rule = new schedule.RecurrenceRule();
 rule.year = 2022
 rule.month = 10
 rule.date = 13
-rule.hour = 16
-rule.minute =48
+rule.hour = 20
+rule.minute = 15
 
-// schedule.scheduleJob(rule, function(){
-//   console.log("투표 종료");
-//   btn = document.getElementsByName('showVotingResult');
-//   btn.disabled = false;
-// })
+let visibility = false
+
+schedule.scheduleJob(rule, function(){
+  console.log("투표 종료");
+  visibility = true
+})
 
 function getIndex(req, res, next) {
   let sess = req.session;
-
   if (!sess.stdNum) {
-    res.render("index");
+    res.render("index", {visibility});
   } else {
     req.session.destroy(function(err) {
-      res.render("index");
+      res.render("index", {visibility});
     });
   }
-
-  document.getElementById
 }
 
 async function postLogin(req, res, next) {
