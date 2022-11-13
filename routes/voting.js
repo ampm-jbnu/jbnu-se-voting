@@ -1,10 +1,8 @@
 import { Router } from 'express';
-// import rule from '../timer/appTimer'
 const router = Router();
 
 import { home, voting_submit, voting_result } from '../constants/routes';
 import vc from '../controllers/votingController';
-import { rule } from '../models/appTimer'
 
 //투표 진행 시 활성화
 router.get(home, vc.checkVoting, vc.getVoting);

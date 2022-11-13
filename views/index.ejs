@@ -25,7 +25,11 @@
           <span id="reauth-email" class="reauth-email"></span>
           <input name="stdNum" type="text" id="inputEmail" class="form-control" placeholder="학번" required autofocus>
           <input name="stdPwd" type="password" id="inputPassword" class="form-control" placeholder="비밀번호" required>
-          <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">로그인</button>
+          <% if (visibility) { %>
+            <button disabled class="btn btn-lg btn-primary btn-block btn-signin" type="submit">투표 종료</button>
+          <% } else { %>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">로그인</button>
+          <% } %>
           <h2 class="profile-name-card">※ 학번과 비밀번호는 오직 투표를 위해서만 쓰입니다.</h2>
         </form><!-- /form -->
         <% if (visibility) { %>

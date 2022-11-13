@@ -3,7 +3,6 @@ import { errors } from "../constants/messages";
 import { home, voting } from '../constants/routes';
 import VotingUser from '../models/VotingUser';
 import {getApiData, API_KEY} from '../.env_auth_api';
-import rule from '../models/appTimer'
 
 const schedule = require('node-schedule');
 const rule = new schedule.RecurrenceRule();
@@ -12,7 +11,7 @@ rule.year = 2022
 rule.month = 10
 rule.date = 13
 rule.hour = 20
-rule.minute = 15
+rule.minute = 33
 
 let visibility = false
 
