@@ -7,8 +7,9 @@ import {getApiData, API_KEY} from '../.env_auth_api';
 const schedule = require('node-schedule');
 const rule = new schedule.RecurrenceRule();
 
+// 선거 날짜 설정
 rule.year = 2022
-rule.month = 10
+rule.month = 10 // month base = 0
 rule.date = 13
 rule.hour = 20
 rule.minute = 33
