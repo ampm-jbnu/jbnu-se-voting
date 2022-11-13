@@ -13,7 +13,7 @@
 
 ![](overview.png)
 
-[View Site - 투표 종료](http://203.254.143.215:3000)
+[View Site - 투표 종료](http://ampm.jbnu.ac.kr:3001)
 
 ## Tech Usage
 
@@ -56,7 +56,7 @@ yarn dev
 ```json
 // user
 {
-  "id": "string",
+  "id": "number",
   "stdNum": "string",       // 학번
   "name": "string",         // 이름
   "check_voting": "boolean" // 투표 했는지 안 했는지 체크용
@@ -72,8 +72,9 @@ yarn dev
 
 ## Release History
 
-- 1.0.0
+- 1.1.0
   - First Release : 2020년도 소프트웨어공학과 학생회장 온라인 선거 서비스
+  - Second Release : 2022년도 소프트웨어공학과 학생회장 온라인 선거 서비스
 
 ## Meta
 
@@ -95,6 +96,7 @@ Distributed under the MIT license. See `LICENSE` for more information.
 
 - Moon Bong-oh [bonomoon](https://github.com/bonomoon)
 - Moon Seokarm [mon823](https://github.com/mon823)
+- Kim Jaehyeon [kiku99](https://github.com/kiku99)
 - Lee Jung-un(선거관리위원장)
 
 ## ScreenShot :camera:
