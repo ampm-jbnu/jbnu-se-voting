@@ -13,7 +13,7 @@
 
 ![](overview.png)
 
-[View Site - 투표 종료](http://ampm.jbnu.ac.kr:3001)
+[View Site - 투표 종료](http://ampm.jbnu.ac.kr/jbnu-se-voting)
 
 ## Tech Usage
 
