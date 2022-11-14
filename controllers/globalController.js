@@ -4,14 +4,30 @@ import { home, voting } from '../constants/routes';
 import VotingUser from '../models/VotingUser';
 import {getApiData, API_KEY} from '../.env_auth_api';
 
+const schedule = require('node-schedule');
+const rule = new schedule.RecurrenceRule();
+
+// 선거 날짜 설정
+rule.year = 2022
+rule.month = 10 // month base = 0
+rule.date = 13
+rule.hour = 20
+rule.minute = 33
+
+let visibility = false
+
+schedule.scheduleJob(rule, function(){
+  console.log("투표 종료");
+  visibility = true
+})
+
 function getIndex(req, res, next) {
   let sess = req.session;
-
   if (!sess.stdNum) {
-    res.render("index");
+    res.render("index", {visibility});
   } else {
     req.session.destroy(function(err) {
-      res.render("index");
+      res.render("index", {visibility});
     });
   }
 }
