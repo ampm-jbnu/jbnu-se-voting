@@ -72,9 +72,8 @@ yarn dev
 
 ## Release History
 
-- 1.1.0
+- 1.0.0
   - First Release : 2020년도 소프트웨어공학과 학생회장 온라인 선거 서비스
-  - Second Release : 2022년도 소프트웨어공학과 학생회장 온라인 선거 서비스
 
 ## Meta
 
