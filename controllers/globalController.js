@@ -1,4 +1,4 @@
-import request from "request";
+import request, { get } from "request";
 import { errors } from "../constants/messages";
 import { home, voting } from '../constants/routes';
 import VotingUser from '../models/VotingUser';
@@ -7,12 +7,13 @@ import {getApiData, API_KEY} from '../.env_auth_api';
 const schedule = require('node-schedule');
 const rule = new schedule.RecurrenceRule();
 
-// 선거 날짜 설정
+// 선거 종료 일시 설정
+// 입력 표준은 KST
 rule.year = 2022
 rule.month = 10 // month base = 0
-rule.date = 13
-rule.hour = 20
-rule.minute = 33
+rule.date = 14
+rule.hour = 14 
+rule.minute = 12
 
 let visibility = false
 
