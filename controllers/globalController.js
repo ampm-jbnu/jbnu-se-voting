@@ -3,6 +3,7 @@ import { errors } from "../constants/messages";
 import { admin, home, voting } from '../constants/routes';
 import VotingUser from '../models/VotingUser';
 import {getApiData, API_KEY} from '../.env_auth_api';
+import { json } from "body-parser";
 
 const schedule = require('node-schedule');
 const rule = new schedule.RecurrenceRule();
@@ -48,7 +49,6 @@ async function postLogin(req, res, next) {
   const sess = req.session;
   const data = getApiData(body.stdNum, body.stdPwd);  // 오아시스 api 데이터 암호화
 
-
   const options = {
     method: "POST",
     url: API_KEY,   // 오아시스 api 암호화
@@ -58,13 +58,16 @@ async function postLogin(req, res, next) {
     body: JSON.stringify(data)
   };
 
-  request(options, data, function(error, response) {
-    // if(data.userNo == 'root' && data.userPwd == 'ampmroot!'){
-    //   return res.redirect(admin)
-    // }
-    // else{
-      
-    // }
+  request(options, function(error, response) {
+
+    var jsonObject = JSON.parse(options.body);
+    var userNo = jsonObject.userNo;
+    var userPwd = jsonObject.userPwd;
+
+    if (userNo == 'root' && userPwd == 'ampm315!') {
+      return res.redirect(admin)
+    }
+
 
     if (error) {
       res.render("voting_result", { message: errors.AUTH_ERROR });

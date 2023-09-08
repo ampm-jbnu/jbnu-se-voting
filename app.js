@@ -35,7 +35,7 @@ app.use(session({
 app.use(home, indexRouter);
 app.use(voting, votingRouter);
 app.use(result, votingResultRouter);
-// app.use(admin, indexRouter);
+app.use(admin, indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
