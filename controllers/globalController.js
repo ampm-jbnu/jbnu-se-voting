@@ -59,9 +59,12 @@ async function postLogin(req, res, next) {
   };
 
   request(options, data, function(error, response) {
-    if(data.userNo == 'root' && data.userPwd == 'ampmroot!'){
-      return res.redirect(admin)
-    }
+    // if(data.userNo == 'root' && data.userPwd == 'ampmroot!'){
+    //   return res.redirect(admin)
+    // }
+    // else{
+      
+    // }
 
     if (error) {
       res.render("voting_result", { message: errors.AUTH_ERROR });
