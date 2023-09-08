@@ -10,6 +10,7 @@ router.get(home, gc.getIndex);
 /* POST home login. */
 router.post(login, gc.postLogin);
 
+/* GET admin page. */
 router.get(admin, gc.getAdmin)
 
 export default router;
