@@ -39,8 +39,9 @@ function getAdmin(req, res, next) {
   if (!sess.stdNum) {
     res.render("admin", {visibility, configs});
   } else {
-    req.session.destroy(function(err) {
-      res.render("admin", {visibility, configs});
+      req.session.destroy(function(err) {
+        res.render("admin", {visibility, configs});
+    });
   }
 }
 
