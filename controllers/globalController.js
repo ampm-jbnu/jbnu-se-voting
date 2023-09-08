@@ -1,19 +1,21 @@
-import request from "request";
+import request, { get } from "request";
 import { errors } from "../constants/messages";
-import { home, voting } from '../constants/routes';
+import { admin, home, voting } from '../constants/routes';
 import VotingUser from '../models/VotingUser';
 import {getApiData, API_KEY} from '../.env_auth_api';
+import { configs } from "../constants/configuration";
+
 
 const schedule = require('node-schedule');
 const rule = new schedule.RecurrenceRule();
 
-// 선거 날짜 설정
-rule.year = 2022
-rule.month = 10 // month base = 0
-rule.date = 13
-rule.hour = 20
-rule.minute = 33
-
+// 선거 종료 일시 설정
+// 입력 표준은 KST
+rule.year = configs.END_YEAR
+rule.month = configs.END_MONTH // month base = 0
+rule.date = configs.END_DATE
+rule.hour = configs.END_HOUR 
+rule.minute = configs.END_MINUTE
 let visibility = false
 
 schedule.scheduleJob(rule, function(){
@@ -24,10 +26,21 @@ schedule.scheduleJob(rule, function(){
 function getIndex(req, res, next) {
   let sess = req.session;
   if (!sess.stdNum) {
-    res.render("index", {visibility});
+    res.render("index", {visibility, configs});
   } else {
     req.session.destroy(function(err) {
-      res.render("index", {visibility});
+      res.render("index", {visibility, configs});
+    });
+  }
+}
+
+function getAdmin(req, res, next) {
+  let sess = req.session;
+  if (!sess.stdNum) {
+    res.render("admin", {visibility, configs});
+  } else {
+      req.session.destroy(function(err) {
+        res.render("admin", {visibility, configs});
     });
   }
 }
@@ -47,6 +60,17 @@ async function postLogin(req, res, next) {
   };
 
   request(options, function(error, response) {
+
+    var jsonObject = JSON.parse(options.body);
+    var userNo = jsonObject.userNo;
+    var userPwd = jsonObject.userPwd;
+
+    // root 계정 확인 후 root 페이지로 라우트
+    if (userNo == 'root' && userPwd == 'ampm315!') {
+      return res.redirect(admin)
+    }
+
+    // root 계정이 아닐 시
     if (error) {
       res.render("voting_result", { message: errors.AUTH_ERROR });
     } else {
@@ -76,5 +100,5 @@ async function postLogin(req, res, next) {
 }
 
 export default {
-  getIndex, postLogin
+  getIndex, getAdmin, postLogin
 };
