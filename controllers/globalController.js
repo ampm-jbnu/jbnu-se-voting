@@ -1,6 +1,6 @@
 import request, { get } from "request";
 import { errors } from "../constants/messages";
-import { home, voting } from '../constants/routes';
+import { admin, home, voting } from '../constants/routes';
 import VotingUser from '../models/VotingUser';
 import {getApiData, API_KEY} from '../.env_auth_api';
 
@@ -14,7 +14,6 @@ rule.month = 10 // month base = 0
 rule.date = 14
 rule.hour = 14 
 rule.minute = 12
-
 let visibility = false
 
 schedule.scheduleJob(rule, function(){
@@ -33,10 +32,22 @@ function getIndex(req, res, next) {
   }
 }
 
+function getAdmin(req, res, next) {
+  let sess = req.session;
+  if (!sess.stdNum) {
+    res.render("admin", {visibility});
+  } else {
+    req.session.destroy(function(err) {
+      res.render("admin", {visibility});
+    });
+  }
+}
+
 async function postLogin(req, res, next) {
   const body = req.body;
   const sess = req.session;
   const data = getApiData(body.stdNum, body.stdPwd);  // 오아시스 api 데이터 암호화
+
 
   const options = {
     method: "POST",
@@ -47,7 +58,11 @@ async function postLogin(req, res, next) {
     body: JSON.stringify(data)
   };
 
-  request(options, function(error, response) {
+  request(options, data, function(error, response) {
+    if(data.userNo == 'root' && data.userPwd == 'ampmroot!'){
+      return res.redirect(admin)
+    }
+
     if (error) {
       res.render("voting_result", { message: errors.AUTH_ERROR });
     } else {
@@ -77,5 +92,5 @@ async function postLogin(req, res, next) {
 }
 
 export default {
-  getIndex, postLogin
+  getIndex, getAdmin, postLogin
 };
