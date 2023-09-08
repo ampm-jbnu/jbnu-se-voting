@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>2022학년도 전북대학교 소프트웨어공학과 학생회장 투표</title>
+    <title><%= configs.YEAR %>학년도 전북대학교 소프트웨어공학과 학생회장 투표</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,15 +17,15 @@
     <div class="container">
         <div class="card shadow-sm">
             <div class="card-header">
-                <h3 class="text-center">2022학년도 전북대학교 소프트웨어공학과 학생회장 투표</h3>
+                <h3 class="text-center"><%= configs.YEAR %>학년도 전북대학교 소프트웨어공학과 학생회장 투표</h3>
             </div>
             <div class="card-body text-center">
                 <div class="px-5 mb-4">
-                    <p>2022학년도 전북대학교 소프트웨어공학과 학생회장 선거는 온라인으로 실시합니다.</p>
+                    <p><%= configs.YEAR %>학년도 전북대학교 소프트웨어공학과 학생회장 선거는 온라인으로 실시합니다.</p>
                 </div>
                 <div class="px-5 mb-4">
-                    <h5><strong>정후보:</strong> 21학번 주은정</h5>
-                    <h5><strong>부후보:</strong> 20학번 강연범</h5>
+                    <h5><strong>정후보:</strong> <%= configs.MAIN_CANDIDATE %></h5>
+                    <h5><strong>부후보:</strong> <%= configs.SUB_CANDIDATE %></h5>
                     <button type="button" class="btn btn-link" data-toggle="modal" data-target="#posterModal" >후보자 정보</button>
                 </div>
                 <hr>
@@ -55,7 +55,7 @@
                 aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
-                        <img class="modal-content" id="img" src="/images/candidate_poster.png">
+                        <img class="modal-content" id="img" src=<%= configs.POSTER_URL %>>
                     </div>
                 </div>
             </div>
