@@ -11,11 +11,11 @@ const rule = new schedule.RecurrenceRule();
 
 // 선거 종료 일시 설정
 // 입력 표준은 KST
-rule.year = 2022
-rule.month = 10 // month base = 0
-rule.date = 14
-rule.hour = 14 
-rule.minute = 12
+rule.year = configs.END_YEAR
+rule.month = configs.END_MONTH // month base = 0
+rule.date = configs.END_DATE
+rule.hour = configs.END_HOUR 
+rule.minute = configs.END_MINUTE
 let visibility = false
 
 schedule.scheduleJob(rule, function(){

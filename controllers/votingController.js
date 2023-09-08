@@ -1,6 +1,7 @@
 import { home, voting, voting_submit } from '../constants/routes';
 import { info, errors } from '../constants/messages';
 import { startSession } from 'mongoose';
+import { configs } from "../constants/configuration";
 
 import VotingUser from '../models/VotingUser';
 import VotingResult from '../models/Vote';
@@ -39,7 +40,7 @@ function checkVoting(req, res, next) {
 }
 
 function getVoting(req, res, next) {
-  res.render("voting");
+  res.render("voting", {configs});
 }
 
 async function postVotingSubmit(req, res, next) {
@@ -84,7 +85,7 @@ function getVotingResult(req, res, next) {
       return ;
   }
 
-  res.render('voting_result', { message: msg });
+  res.render('voting_result', { message: msg , configs});
 }
 
 function logout(req, res, next) {
