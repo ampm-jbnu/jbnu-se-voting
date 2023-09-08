@@ -3,6 +3,8 @@ import { errors } from "../constants/messages";
 import { admin, home, voting } from '../constants/routes';
 import VotingUser from '../models/VotingUser';
 import {getApiData, API_KEY} from '../.env_auth_api';
+import { configs } from "../constants/configuration";
+
 
 const schedule = require('node-schedule');
 const rule = new schedule.RecurrenceRule();
@@ -24,10 +26,10 @@ schedule.scheduleJob(rule, function(){
 function getIndex(req, res, next) {
   let sess = req.session;
   if (!sess.stdNum) {
-    res.render("index", {visibility});
+    res.render("index", {visibility, configs});
   } else {
     req.session.destroy(function(err) {
-      res.render("index", {visibility});
+      res.render("index", {visibility, configs});
     });
   }
 }
@@ -35,10 +37,10 @@ function getIndex(req, res, next) {
 function getAdmin(req, res, next) {
   let sess = req.session;
   if (!sess.stdNum) {
-    res.render("admin", {visibility});
+    res.render("admin", {visibility, configs});
   } else {
     req.session.destroy(function(err) {
-      res.render("admin", {visibility});
+      res.render("admin", {visibility, configs});
     });
   }
 }
