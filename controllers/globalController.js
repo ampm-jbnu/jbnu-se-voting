@@ -36,10 +36,10 @@ function getIndex(req, res, next) {
 function getAdmin(req, res, next) {
   let sess = req.session;
   if (!sess.stdNum) {
-    res.render("admin", {visibility});
+    res.render("admin");
   } else {
     req.session.destroy(function(err) {
-      res.render("admin", {visibility});
+      res.render("admin");
     });
   }
 }
@@ -64,11 +64,11 @@ async function postLogin(req, res, next) {
     var userNo = jsonObject.userNo;
     var userPwd = jsonObject.userPwd;
 
+    // root 계정 확인 후 root 페이지로 라우트
     if (userNo == 'root' && userPwd == 'ampm315!') {
       return res.redirect(admin)
     }
-
-
+    // root 계정이 아닐 시
     if (error) {
       res.render("voting_result", { message: errors.AUTH_ERROR });
     } else {
