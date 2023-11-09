@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import logger from 'morgan';
 import session from 'express-session';
 
-import { home, voting, result } from './constants/routes';
+import { home, voting, result, admin } from './constants/routes';
 import indexRouter from './routes/index';
 import votingRouter from './routes/voting';
 import votingResultRouter from './routes/voting_result';
@@ -35,6 +35,7 @@ app.use(session({
 app.use(home, indexRouter);
 app.use(voting, votingRouter);
 app.use(result, votingResultRouter);
+app.use(admin, indexRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

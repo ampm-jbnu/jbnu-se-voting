@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% var date = new Date()%>
+  <title><%= configs.YEAR %>학년도 전북대학교 소프트웨어공학과 학생회장 투표</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <div class="container">
+    <div class="py-5 text-center text-white">
+      <h2> admin page </h2>
+    </div>
+  </div><!-- /container -->
+  <!-- Optional JavaScript -->
+  <!-- jQu1ery first, then Popper.js, then Bootstrap JS -->
+  <div class="container">
+    <div class="py-5 text-center">
+      <form action="form.ok.php" method="POST">
+        <div class="form-group">
+          <label for="Year_in">Input Year</label>
+          <input id="Year_in" type="text" placeholder="연도 입력" />
+        </div>
+        <div class="form-group">
+          <label for="Month_in">Input Month</label>
+          <input id="Month_in" type="text" placeholder="월 입력" />
+        </div>
+        <div class="form-group">
+          <label for="Day_in">Input Day</label>
+          <input id="Day_in" type="text" placeholder="일자 입력" />
+        </div>
+        <div class="form-group">
+          <label for="Hour_in">Input Hour</label>
+          <input id="Hour_in" type="text" placeholder="시간 입력" />
+        </div>
+        <div class="form-group">
+          <label for="Minute_in">Input Minute</label>
+          <input id="Minute_in" type="text" placeholder="분 입력" />
+        </div>
+        <div class="form-group">
+          <label for="candidate_1_in">Input Candidate - 1st</label>
+          <input id="candidate_1_in" type="text" placeholder="회장 성함 입력" />
+        </div>
+        <div class="form-group">
+          <label for="candidate_2_in">Input Candidate - 2nd</label>
+          <input id="candidate_2_in" type="text" placeholder="부회장 성함 입력" />
+        </div>
+        <br>
+        <input id="click_ALL" type="submit" />
+      </form>
+    </div>
+  </div>
+  
+
+  <style>
+    .form-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    
+    .form-group label {
+      display: inline-block;
+      width: 200px; /* 레이블 너비 조정 */
+      font-weight: bold;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    #click_ALL {
+      width : 100%;
+      height : 50px;
+    }
+  </style>
+
+  </form>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+  </script>
+
+</body>
+
+</html>
