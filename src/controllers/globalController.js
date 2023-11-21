@@ -2,10 +2,9 @@ import request, { get } from "request";
 import { errors } from "../constants/messages";
 import { admin, home, voting } from '../constants/routes';
 import VotingUser from '../models/VotingUser';
-import {getApiData, API_KEY} from '../.env_auth_api';
 import { configs } from "../constants/configuration";
 
-
+const { API_KEY, getApiData } = require('../../../../secret/.env_auth_api.js');
 const schedule = require('node-schedule');
 const rule = new schedule.RecurrenceRule();
 

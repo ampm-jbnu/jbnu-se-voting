@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-require('dotenv').config();
+require('dotenv').config({path: '../../secret/.env'});
 
 let db = mongoose.connection;
 
