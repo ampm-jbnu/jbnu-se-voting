@@ -101,11 +101,11 @@ Distributed under the MIT license. See `LICENSE` for more information.
 ## ScreenShot :camera:
 
 <div>
-  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/1.jpg" />
-  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/2.jpg" />
-  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/3.jpg" />
-  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/4.jpg" />
-  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/5.jpg" />
+  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/src/screenshot/1.jpg" />
+  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/src/screenshot/2.jpg" />
+  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/src/screenshot/3.jpg" />
+  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/src/screenshot/4.jpg" />
+  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/src/screenshot/5.jpg" />
 </div>
 
 <!-- MARKDOWN LINKS & IMAGES -->
