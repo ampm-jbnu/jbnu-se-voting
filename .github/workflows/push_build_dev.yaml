@@ -27,7 +27,6 @@ jobs:
           echo "::set-output name=VERSION::${{ env.TIME }}"
 
   docker:
-      if: github.repository_owner == 'ampmjbnu'
       needs: versioning
       runs-on: ubuntu-latest
       env:
@@ -42,7 +41,7 @@ jobs:
           uses: docker/build-push-action@v1
           with:
             path: .
-            repository: kiku99/${{ env.SERVICE }}
+            repository: ampmjbnu/${{ env.SERVICE }}
             username: ${{ secrets.DOCKER_USERNAME }}
             password: ${{ secrets.DOCKER_PASSWORD }}
             tags: ${{ env.VERSION }}
