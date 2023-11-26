@@ -9,7 +9,7 @@
 [![MIT License][license-shield]][license-url]
 
 코로나 19로 인해 실제 학과 내에서 온라인 기밀 투표를 하기 위해 개발한 전북대학교 소프트웨어공학과의 온라인 투표 서비스이며, 다른 타겟층 서비스에도 응용할 수 있습니다.
-인증을 위해 특정 로그인 api를 사용했으나 보안상의 이유로 코드에서 삭제했습니다.
+인증을 위해 특정 로그인 api를 사용했으나 보안상의 이유로 코드에서 삭제했습니다.1
 
 ![](overview.png)
 
@@ -22,15 +22,30 @@
 * Mongo DB 4.2.3 (Mongoose ^5.9.4)
 
 ## Start
+`✅ git checkout master`
 
-> 프로젝트 메인에 .env 파일을 생성해야 합니다.(PORT와 DB 정보)
+> 배포 환경에 secret 디렉토리가 존재해야 합니다.
 
-Terminal
-
+1. Check and delete existing Docker image
 ```sh
-yarn
-yarn global add forever
-yarn start
+sudo docker images
+sudo docker rmi [Image ID]
+```
+
+2. Check and delete existing Docker container
+```sh
+sudo docker ps -a
+sudo docker rm [container ID]
+```
+
+3. Download new image from [Docker Hub](https://hub.docker.com/r/ampmjbnu/jbnu-se-voting/tags)
+```sh
+sudo docker pull ampmjbnu/jbnu-se-voting:[tag]
+```
+
+4. Create and run container(options can be changed)
+```sh
+sudo docker run -it --name sevote -v /home/ampm/secret:/secret -p 10011:10011 ampmjbnu/jbnu-se-voting:[tag]
 ```
 
 ## Logging
@@ -40,13 +55,13 @@ tail -f ~/.forever/sevoting.log
 ```
 
 ## Development setup
+`✅ git checkout dev`
 
 > 프로젝트 메인에 .env 파일을 생성해야 합니다.(PORT와 DB 정보)
 
-프로젝트 폴더 안에서 아래의 명령어를 실행시켜주세요.
-
 ```sh
 yarn
+yarn global add forever
 yarn global add nodemon
 yarn dev
 ```
@@ -79,6 +94,8 @@ yarn dev
 
 Kim Hyunwoo – ampm.jbnu.315@gmail.com
 
+[Docker Hub](https://hub.docker.com/r/ampmjbnu/jbnu-se-voting) Account - elsd0326@jbnu.ac.kr
+
 Distributed under the MIT license. See `LICENSE` for more information.
 
 [https://github.com/ampm-jbnu/JBNU-SE-Voting](https://github.com/ampm-jbnu/JBNU-SE-Voting)
@@ -101,11 +118,11 @@ Distributed under the MIT license. See `LICENSE` for more information.
 ## ScreenShot :camera:
 
 <div>
-  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/1.jpg" />
-  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/2.jpg" />
-  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/3.jpg" />
-  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/4.jpg" />
-  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/screenshot/5.jpg" />
+  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/src/screenshot/1.jpg" />
+  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/src/screenshot/2.jpg" />
+  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/src/screenshot/3.jpg" />
+  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/src/screenshot/4.jpg" />
+  <img width="30%" src="https://github.com/ampm-jbnu/JBNU-SE-Voting/blob/master/src/screenshot/5.jpg" />
 </div>
 
 <!-- MARKDOWN LINKS & IMAGES -->
