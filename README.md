@@ -22,6 +22,7 @@
 * Mongo DB 4.2.3 (Mongoose ^5.9.4)
 
 ## Start
+`✅ git checkout master`
 
 > 배포 환경에 secret 디렉토리가 존재해야 합니다.
 
@@ -54,10 +55,9 @@ tail -f ~/.forever/sevoting.log
 ```
 
 ## Development setup
+`✅ git checkout dev`
 
 > 프로젝트 메인에 .env 파일을 생성해야 합니다.(PORT와 DB 정보)
-
-프로젝트 폴더 안에서 아래의 명령어를 실행시켜주세요.
 
 ```sh
 yarn
