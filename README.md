@@ -22,15 +22,30 @@
 * Mongo DB 4.2.3 (Mongoose ^5.9.4)
 
 ## Start
+`✅ git checkout master`
 
-> 프로젝트 메인에 .env 파일을 생성해야 합니다.(PORT와 DB 정보)
+> 배포 환경에 secret 디렉토리가 존재해야 합니다.
 
-Terminal
-
+1. Check and delete existing Docker image
 ```sh
-yarn
-yarn global add forever
-yarn start
+sudo docker images
+sudo docker rmi [Image ID]
+```
+
+2. Check and delete existing Docker container
+```sh
+sudo docker ps -a
+sudo docker rm [container ID]
+```
+
+3. Download new image from [Docker Hub](https://hub.docker.com/r/ampmjbnu/jbnu-se-voting/tags)
+```sh
+sudo docker pull ampmjbnu/jbnu-se-voting:[tag]
+```
+
+4. Create and run container(options can be changed)
+```sh
+sudo docker run -it --name sevote -v /home/ampm/secret:/secret -p 10011:10011 ampmjbnu/jbnu-se-voting:[tag]
 ```
 
 ## Logging
@@ -40,13 +55,13 @@ tail -f ~/.forever/sevoting.log
 ```
 
 ## Development setup
+`✅ git checkout dev`
 
 > 프로젝트 메인에 .env 파일을 생성해야 합니다.(PORT와 DB 정보)
 
-프로젝트 폴더 안에서 아래의 명령어를 실행시켜주세요.
-
 ```sh
 yarn
+yarn global add forever
 yarn global add nodemon
 yarn dev
 ```
@@ -78,6 +93,8 @@ yarn dev
 ## Meta
 
 Kim Hyunwoo – ampm.jbnu.315@gmail.com
+
+[Docker Hub](https://hub.docker.com/r/ampmjbnu/jbnu-se-voting) Account - elsd0326@jbnu.ac.kr
 
 Distributed under the MIT license. See `LICENSE` for more information.
 
